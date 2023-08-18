@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categories",
+  "info": {
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "Category"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "categoryColor": {
+      "type": "string",
+      "maxLength": 15
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::post.post",
+      "mappedBy": "categories"
+    }
+  }
+}
