@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "consult_types",
   "info": {
-    "singularName": "tag",
-    "pluralName": "tags",
-    "displayName": "Tag",
-    "description": ""
+    "singularName": "consult-type",
+    "pluralName": "consult-types",
+    "displayName": "Consult Type"
   },
   "options": {
     "draftAndPublish": true
@@ -14,19 +13,19 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": true
+      "required": true
     },
     "description": {
-      "type": "string"
+      "type": "text"
     },
     "color": {
       "type": "string"
     },
-    "posts": {
+    "consults": {
       "type": "relation",
       "relation": "manyToMany",
-      "target": "api::post.post",
-      "mappedBy": "tags"
+      "target": "api::consult.consult",
+      "mappedBy": "consult_types"
     }
   }
 }

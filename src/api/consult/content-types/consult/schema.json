@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consults",
+  "info": {
+    "singularName": "consult",
+    "pluralName": "consults",
+    "displayName": "Consult",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "date": {
+      "type": "date",
+      "required": true
+    },
+    "ubication": {
+      "type": "string",
+      "required": true
+    },
+    "likes": {
+      "type": "integer"
+    },
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "consult_types": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::consult-type.consult-type",
+      "inversedBy": "consults"
+    },
+    "users_permissions_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}
